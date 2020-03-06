@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.login_layout );
-        initComponent ();
+        initView();
         Bmob.initialize ( this, "494cd47a0866a92f426c701b836534e0" );
 
         if ( BmobUser.isLogin () ){
@@ -84,7 +84,7 @@ public class Login extends AppCompatActivity {
         } );
 
     }
-    private void initComponent(){
+    private void initView(){
         loginUsername = (TextInputEditText ) findViewById ( R.id.login_username );
         loginPassword = (TextInputEditText) findViewById ( R.id.login_password );
         login = (Button) findViewById ( R.id.login_button_login );
