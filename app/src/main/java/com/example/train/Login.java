@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.login_layout );
         initView();
-        Bmob.initialize ( this, "494cd47a0866a92f426c701b836534e0" );
+        Bmob.initialize ( this, "494cd47a0866a92f426c701b836534e0" );    //绑定BMOB云服务器
 
         if ( BmobUser.isLogin () ){
             Toast.makeText ( this,"已登录！",Toast.LENGTH_SHORT ).show ();
@@ -37,12 +37,12 @@ public class Login extends AppCompatActivity {
             finish ();
         }else{
             Toast.makeText ( this,"请登录！",Toast.LENGTH_SHORT ).show ();
-        }
+        }     //判断用户是否登录
 
         login.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick ( View view ) {
-                String username = loginUsername.getText ().toString ().trim ();
+                String username = loginUsername.getText ().toString ().trim ();   //trim---去除字符串首尾空格
                 String password = loginPassword.getText ().toString ().trim ();
                 if(!username.isEmpty () && !password.isEmpty ()){
 
@@ -57,9 +57,9 @@ public class Login extends AppCompatActivity {
                             if(e==null){
                                 Toast.makeText ( Login.this,"登陆成功！",Toast.LENGTH_SHORT ).show ();
                                 Intent intent = new Intent (  );
-                                intent.setClass ( Login.this, Home.class );
+                                intent.setClass ( Login.this, Home.class );   //intent跳转界面或者传递消息
                                 startActivity ( intent );
-                                finish ();
+                                finish (); //杀死当前activity
                             }else {
                                 if(e.getErrorCode ()==101) {
                                     Toast.makeText ( Login.this , "用户名或密码错误！" , Toast.LENGTH_SHORT ).show ( );
@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick ( View view ) {
                 Intent intent = new Intent (  );
-                intent.setClass ( Login.this, Register.class );
+                intent.setClass ( Login.this, Register.class );  //跳转到注册界面
                 startActivity ( intent );
                 finish ();
             }
@@ -89,5 +89,5 @@ public class Login extends AppCompatActivity {
         loginPassword = (TextInputEditText) findViewById ( R.id.login_password );
         login = (Button) findViewById ( R.id.login_button_login );
         register = (Button) findViewById ( R.id.login_button_register );
-    }
+    }  //绑定组件
 }

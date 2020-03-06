@@ -84,7 +84,7 @@ public class MyTicketInfo extends Fragment {
                     }
                 });
             }
-        });
+        });  //BMOB内置函数
 
         return view;
     }

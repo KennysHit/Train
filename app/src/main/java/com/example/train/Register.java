@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.register_layout );
-        initComponent ();
+        initView();
 
         register.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
                 String username = registerUsername.getText ().toString ().trim ();
                 String password = registerPassword.getText ().toString ().trim ();
                 String password2 = registerPassword2.getText ().toString ().trim ();
-                if ( !username.isEmpty () && !password.isEmpty ( ) && !password2.isEmpty ( ) ) {
+                if ( !username.isEmpty () && !password.isEmpty () && !password2.isEmpty () ) {
                     if ( password.equals ( password2 ) ) {
 
                         User user = new User ();
@@ -43,7 +43,7 @@ public class Register extends AppCompatActivity {
 
                         user.signUp ( new SaveListener< User > ( ) {
                             @Override
-                            public void done ( User user , BmobException e ) {
+                            public void done ( User user , BmobException e ) {    //BMOB的内置函数
                                 if(e==null){
                                     Toast.makeText ( Register.this , "注册成功！" , Toast.LENGTH_SHORT ).show ( );
                                     Intent intent = new Intent (  );
@@ -52,7 +52,7 @@ public class Register extends AppCompatActivity {
                                     finish ();
                                 }else{
                                     Toast.makeText ( Register.this , "注册失败，错误："+e.getMessage () , Toast.LENGTH_SHORT ).show ( );
-                                    Log.e ( "error:",e.getMessage () );
+                                    Log.e ( "error:",e.getMessage () );  //Toast--界面提示；log--终端信息打印
                                 }
                             }
                         } );
@@ -78,7 +78,7 @@ public class Register extends AppCompatActivity {
         } );
     }
 
-    private void initComponent(){
+    private void initView(){
         registerUsername = (TextInputEditText ) findViewById ( R.id.register_username );
         registerPassword = (TextInputEditText) findViewById ( R.id.register_password );
         registerPassword2 = (TextInputEditText) findViewById ( R.id.register_password2 );

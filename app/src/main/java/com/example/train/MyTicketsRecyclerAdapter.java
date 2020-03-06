@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//适配器
+
 public class MyTicketsRecyclerAdapter extends RecyclerView.Adapter<MyTicketsRecyclerAdapter.MyTicketsViewHolder> {
     private List<Ticket> data;
     private Context context;

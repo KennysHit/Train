@@ -124,7 +124,7 @@ public class TicketInfo extends Fragment {
                     new BmobBatch().insertBatch(data).doBatch(new QueryListListener<BatchResult>() {
 
                         @Override
-                        public void done(List<BatchResult> o, BmobException e) {
+                        public void done(List<BatchResult> o, BmobException e) {    //将data的数据信息传入服务器
                             if(e==null){
                                 data.clear();
                                 itemcount.setText("当前订单数: " + data.size());
@@ -198,7 +198,7 @@ public class TicketInfo extends Fragment {
         ticket.setBuyer(user.getUsername());
         data.add(ticket);
         itemcount.setText("当前订单数: " + data.size());
-        passenger.setText("");
+        passenger.setText("");   //清空
         phone.setText("");
         Toast.makeText(getActivity(), "添加成功！", Toast.LENGTH_SHORT).show();
         System.out.println(ticket.getSittype());

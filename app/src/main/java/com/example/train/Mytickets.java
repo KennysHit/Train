@@ -88,8 +88,8 @@ public class Mytickets extends Fragment {
 
     private void initData(){
         BmobQuery<Ticket> query = new BmobQuery<Ticket>();
-        query.addWhereEqualTo("buyer", user.getUsername());
-        query.setLimit(50);
+        query.addWhereEqualTo("buyer", user.getUsername());  //设置查询条件，购买人为当前用户的用户民
+        query.setLimit(50);   //一次性查询的数目上限
         query.findObjects(new FindListener<Ticket>() {
             @Override
             public void done(List<Ticket> object, BmobException e) {

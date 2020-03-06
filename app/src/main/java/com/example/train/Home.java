@@ -22,7 +22,7 @@ public class Home extends AppCompatActivity {
     private View headView;
     private TextView username;
     private Button logout;
-    private User user = BmobUser.getCurrentUser(User.class);
+    private User user = BmobUser.getCurrentUser(User.class);  //获得当前已登录的用户
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
@@ -32,9 +32,9 @@ public class Home extends AppCompatActivity {
         initView();
 
         Fragment query = new Query();
-        getSupportFragmentManager().beginTransaction().replace(R.id.home, query).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.home, query).commit();  //替换掉home_layout里的home组件
 
-        username.setText ( user.getUsername () );
+        username.setText ( user.getUsername () );  //拿到侧滑框的用户名
         System.out.println ( user.getObjectId () );
 
         logout.setOnClickListener ( new View.OnClickListener ( ) {
