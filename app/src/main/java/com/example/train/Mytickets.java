@@ -86,6 +86,9 @@ public class Mytickets extends Fragment {
         back = (Button) view.findViewById(R.id.mtickets_back);
     }
 
+    /**
+     * 查询自己订单
+     */
     private void initData(){
         BmobQuery<Ticket> query = new BmobQuery<Ticket>();
         query.addWhereEqualTo("buyer", user.getUsername());  //设置查询条件，购买人为当前用户的用户民

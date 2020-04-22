@@ -28,7 +28,6 @@ public class QueryResult implements Serializable {
         this.msg = msg;
     }
 
-
     public void setResult ( QueryInfo result ) {
         this.result = result;
     }

@@ -68,23 +68,23 @@ public class MyTicketInfo extends Fragment {
         });
 
         giveback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ticket.setObjectId(ticket.getObjectId());
-                ticket.delete(new UpdateListener() {
-                    @Override
-                    public void done(BmobException e) {
-                        if(e==null){
-                            Toast.makeText ( getActivity(), "退票成功！", Toast.LENGTH_SHORT ).show ();
-                            Fragment mtickets = new Mytickets();
-                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home, mtickets).commit();
-                        }else{
-                            Toast.makeText ( getActivity(), "退票失败！" + e.getMessage(), Toast.LENGTH_SHORT ).show ();
-                        }
+        @Override
+        public void onClick(View v) {
+            ticket.setObjectId(ticket.getObjectId());
+            ticket.delete(new UpdateListener() {
+                @Override
+                public void done(BmobException e) {
+                    if(e==null){
+                        Toast.makeText ( getActivity(), "退票成功！", Toast.LENGTH_SHORT ).show ();
+                        Fragment mtickets = new Mytickets();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.home, mtickets).commit();
+                    }else{
+                        Toast.makeText ( getActivity(), "退票失败！" + e.getMessage(), Toast.LENGTH_SHORT ).show ();
                     }
-                });
-            }
-        });  //BMOB内置函数
+                }
+            });
+        }
+    });  //BMOB内置函数
 
         return view;
     }

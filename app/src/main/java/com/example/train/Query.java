@@ -170,6 +170,7 @@ public class Query extends Fragment {
      * @param end 终点站
      * @param date 出发时间
      * @return 字符串类型的json对象
+     * 获取车票数据
      */
     private String getInfo(String start, String end, String date){
         String result = "";
@@ -268,7 +269,7 @@ public class Query extends Fragment {
     }
 
     /**
-     * 将拿到的字符串类型的json对象解析为对应json对象的javaBean对象
+     * 将拿到的车票数据的json对象解析为对应json对象的javaBean对象
      * @param jsonData 拿到的字符串类型的json对象
      * @return 解析后的javabean对象
      */
